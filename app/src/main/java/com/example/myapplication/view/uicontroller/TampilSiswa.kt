@@ -39,4 +39,41 @@ fun TampilSiswa(
                 )
             )
         }
-    )
+    ) { isiRuang ->
+        Column(
+            modifier = Modifier
+                .padding(isiRuang)
+                .padding(dimensionResource(id = R.dimen.padding_medium))
+                .fillMaxWidth(),
+            verticalArrangement = Arrangement.SpaceBetween,
+            horizontalAlignment = Alignment.Start
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(all = dimensionResource(id = R.dimen.padding_medium)),
+                verticalArrangement = Arrangement.spacedBy(space = dimensionResource(id = R.dimen.padding_medium))
+            ) {
+                items.forEach { item ->
+                    Column {
+                        Text(text = item.first.uppercase(), fontSize = 16.sp)
+                        Text(text = item.second, fontWeight = FontWeight.Bold, fontSize = 16.sp)
+
+                        Divider(thickness = dimensionResource(id = R.dimen.thickness_divider))
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
+
+                // Tombol Back
+                Button(
+                    modifier = Modifier.fillMaxWidth(),
+                    onClick = onBackButtonClicked
+                ) {
+                    // Menggunakan R.string.back
+                    Text(text = stringResource(R.string.back))
+                }
+            }
+        }
+    }
+}
