@@ -103,3 +103,20 @@ fun FormSiswa(
                 onValueChange = { txtAlamat = it }
             )
 
+            Spacer(Modifier.height(20.dp))
+
+            // Tombol Submit
+            Button(
+                modifier = Modifier.fillMaxWidth(fraction = 1f),
+                enabled = txtAlamat.isNotEmpty() && txtNama.isNotEmpty() && txtGender.isNotEmpty(),
+                onClick = {
+                    val listDataSiswaToSend: MutableList<String> = mutableListOf(txtNama, txtAlamat, txtGender)
+                    onSubmitButtonClicked(listDataSiswaToSend)
+                }
+            ) {
+                // Menggunakan R.string.submit
+                Text(text = stringResource(id = R.string.submit))
+            }
+        }
+    }
+}
