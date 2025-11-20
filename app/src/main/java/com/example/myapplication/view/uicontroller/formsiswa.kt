@@ -92,3 +92,14 @@ fun FormSiswa(
                 color = Color.Blue
             )
 
+            // Input Alamat
+            OutlinedTextField(
+                modifier = Modifier.width(250.dp),
+                value = txtAlamat,
+                singleLine = true,
+                shape = MaterialTheme.shapes.medium,
+                // Menggunakan R.string.alamat
+                label = { Text(text = stringResource(id = R.string.alamat)) },
+                onValueChange = { txtAlamat = it }
+            )
+
